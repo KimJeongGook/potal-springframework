@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.homework.potal.member.service.MemberMapper">
+	<select id="memberSelectList" resultType="co.homework.potal.member.service.MemberVO">
+		SELECT * FROM MEMBER
+	</select>
+	<select id="memberSelect" parameterType="co.homework.potal.member.service.MemberVO" resultType="co.homework.potal.member.service.MemberVO">
+		SELECT * FROM MEMBER WHERE ID = #{id}
+		<if test = "password != null">
+			AND PASSWORD = #{password}
+		</if>
+	</select>
+	<insert id="memberInsert" parameterType="co.homework.potal.member.service.MemberVO">
+		INSERT INTO MEMBER(ID, PASSWORD, NAME, PHONE, ADDRESS)
+		VALUES(#{id}, #{password},#{name},#{phone},#{address})
+	</insert>
+	<update id="memberUpdate" parameterType="co.homework.potal.member.service.MemberVO">
+		UPDATE MEMBER
+		<if test="password != null">SET PASSWORD = #{password}</if>
+		<if test="name != null">SET NAME = #{name}</if>
+		<if test="phone != null">SET PHONE = #{phone}</if>
+		<if test="address != null">SET ADDRESS = #{address}</if>
+		WHERE ID = #{id}
+	</update>
+	<delete id="memberDelete" parameterType="co.homework.potal.member.service.MemberVO">
+		DELETE FROM MEMBER WHERE ID = #{id}
+	</delete>
+	
+	<select id="memberIdCheck" parameterType="String" resultType="boolean">
+		SELECT (CASE WHEN COUNT(*) = 1 THEN 1 ELSE 0 END) AS RESULT
+		FROM MEMBER
+		WHERE ID = #{id}
+	</select>
+</mapper>
