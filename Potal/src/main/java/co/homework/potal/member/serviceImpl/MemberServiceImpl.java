@@ -3,11 +3,13 @@ package co.homework.potal.member.serviceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import co.homework.potal.member.service.MemberMapper;
 import co.homework.potal.member.service.MemberService;
 import co.homework.potal.member.service.MemberVO;
 
+@Repository("memberDao") //class명 어노테이션 ID
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired //자동주입 member-map.xml 
