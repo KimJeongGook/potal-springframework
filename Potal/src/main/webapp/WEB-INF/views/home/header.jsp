@@ -22,12 +22,12 @@
 				<c:if test="${id != null }">
 					<li><a href="memberLogout.do">Logout</a></li>
 					<li><a href="#">Contact</a></li>
-					<li><a href="#">About</a></li>
+					<li><a href="noticeList.do">Notice</a></li>
 					<li><a href="#">Product</a></li>
 					<li><a href="#">Service</a></li>
 				</c:if>
 				<c:if test="${id eq null }">
-                	<li><a href="#">About</a></li>
+                	<li><a href="noticeList.do">Notice</a></li>
                 </c:if>
 				<c:if test="${author eq 'ADMIN' }">
 					<li><a href="#about">Members</a></li>
