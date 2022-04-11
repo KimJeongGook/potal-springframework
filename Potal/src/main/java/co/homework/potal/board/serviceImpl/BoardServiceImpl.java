@@ -9,7 +9,7 @@ import co.homework.potal.board.service.BoardMapper;
 import co.homework.potal.board.service.BoardService;
 import co.homework.potal.board.service.BoardVO;
 
-@Repository("BoardDao")
+@Repository("boardDao")
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired
