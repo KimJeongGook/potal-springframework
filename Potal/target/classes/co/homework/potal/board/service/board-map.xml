@@ -35,6 +35,7 @@
 		<if test="key.equals('title')">AND TITLE LIKE '%'||#{val}||'%'</if>
 		<if test="key.equals('subject')">AND SUBJECT LIKE '%'||#{val}||'%'</if>
 		<if test="key.equals('wdate')">AND TO_CHAR(WDATE,'YYYY-MM-DD') = #{val}</if>
+		ORDER BY B.NO DESC	
 	</select>
 	
 	<update id="boardHit" parameterType="int">

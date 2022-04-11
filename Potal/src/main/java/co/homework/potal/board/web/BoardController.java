@@ -1,6 +1,7 @@
 package co.homework.potal.board.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import co.homework.potal.board.service.BoardService;
 import co.homework.potal.board.service.BoardVO;
 
+@Controller
 public class BoardController {
+
 	@Autowired
 	BoardService boardDao;
-	
+
 	//이하 Mapper 메소드를 만들어 준다
 	@RequestMapping("/noticeList.do")
 	public String noticeList(Model model) {
